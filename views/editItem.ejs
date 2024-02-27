@@ -1,0 +1,24 @@
+<!-- editItem.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Item</title>
+</head>
+<body>
+    <h1>Edit Item</h1>
+    <form action="/admin/editItem/<%= item._id %>" method="POST">
+        <!-- Add form fields for editing the item -->
+        <!-- For example: name, description, images, etc. -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="<%= item.name %>" required><br><br>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required><%= item.description %></textarea><br><br>
+        <label for="images">Images:</label>
+        <input type="file" id="images" name="images" multiple><br><br>
+        <button type="submit">Save Changes</button>
+    </form>
+</body>
+</html>

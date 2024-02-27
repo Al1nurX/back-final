@@ -1,0 +1,22 @@
+<!-- addItem.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Item</title>
+</head>
+
+<body>
+    <h1>Add New Item</h1>
+    <form action="/admin/addItem" method="post" enctype="multipart/form-data">
+        <input type="text" name="names" placeholder="Names in JSON format">
+        <input type="text" name="descriptions" placeholder="Descriptions in JSON format">
+        <input type="file" name="images" multiple>
+        <button type="submit">Add Item</button>
+    </form>
+</body>
+
+</html>

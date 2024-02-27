@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>User Management</title>
+	<link rel="stylesheet" href="/admin.css">
+</head>
+
+<body>
+	<h1>User Management</h1>
+
+	<form action="/admin/logout" method="post">
+		<button type="submit" class="logout-btn">Logout</button>
+	</form>
+
+	<a href="/admin/addItem">Add Item</a>
+
+	<form action="/admin/addUser" method="post">
+		<input type="text" name="name" placeholder="Username" required>
+		<input type="password" name="password" placeholder="Password" required>
+		<button type="submit">Add User</button>
+	</form>
+
+	<ul>
+		<% users.forEach(user=> { %>
+			<li>
+				<%= user.name %> - Creation Date: <%= user.creationDate %> | Deletion Date: <%= user.deletionDate
+							|| 'Not deleted' %>
+							<a href="/admin/editUser/<%= user._id %>" class="edit-btn">Edit</a>
+							<a href="/admin/deleteUser/<%= user._id %>" class="delete-btn">Delete</a>
+			</li>
+			<% }) %>
+	</ul>
+</body>
+
+</html>

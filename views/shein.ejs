@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Shein Products</title>
+	<style>
+		.product {
+			border: 1px solid #ccc;
+			padding: 10px;
+			margin-bottom: 20px;
+			width: 300px;
+		}
+
+		.product img {
+			width: 100%;
+			max-width: 200px;
+			height: auto;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Shein Products</h1>
+	<div class="products-container">
+		<% products.forEach(product=> { %>
+			<div class="product">
+				<img src="<%= product.goods_img %>" alt="<%= product.goods_name %>">
+				<h2>
+					<%= product.goods_name %>
+				</h2>
+				<p><strong>Category:</strong>
+					<%= product.cate_name %>
+				</p>
+				<p><strong>Price:</strong>
+					<%= product.salePrice.amountWithSymbol %>
+				</p>
+				<p><strong>Stock:</strong>
+					<%= product.stock %>
+				</p>
+				<p><strong>Rating:</strong>
+					<%= product.comment_rank_average %>
+				</p>
+				<p><strong>Number of Comments:</strong>
+					<%= product.comment_num_show %>
+				</p>
+			</div>
+			<% }); %>
+	</div>
+	<script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+	<script>
+		Weglot.initialize({
+			api_key: 'wg_e3c408b1f07490eaf3e47a19b9404ebf3'
+		});
+	</script>
+</body>
+
+</html>
