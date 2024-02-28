@@ -1,22 +1,78 @@
-<!-- addItem.ejs -->
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Item</title>
+    <title>Add New Item</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 
 <body>
-    <h1>Add New Item</h1>
-    <form action="/admin/addItem" method="post" enctype="multipart/form-data">
-        <input type="text" name="names" placeholder="Names in JSON format">
-        <input type="text" name="descriptions" placeholder="Descriptions in JSON format">
-        <input type="file" name="images" multiple>
-        <button type="submit">Add Item</button>
-    </form>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+        <div class="container">
+            <a class="navbar-brand fs-2" href="/admin/items">Items</a>
+            <a class="mx-auto navbar-brand fs-2" href="/admin">User Management</a>
+            <form class="form-inline" action="/admin/logout" method="post">
+                <button class="btn btn-danger" type="submit">Logout</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container mb-5 pb-3">
+        <h1 class="mt-5 mb-4">Add New Item</h1>
+        <form action="/admin/items/addItems" method="POST">
+            <div class="mb-3">
+                <label for="picture1" class="form-label">Picture 1 URL:</label>
+                <input type="text" class="form-control" id="picture1" name="picture1" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="picture2" class="form-label">Picture 2 URL:</label>
+                <input type="text" class="form-control" id="picture2" name="picture2" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="picture3" class="form-label">Picture 3 URL:</label>
+                <input type="text" class="form-control" id="picture3" name="picture3" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="nameEN" class="form-label">Name (English):</label>
+                <input type="text" class="form-control" id="nameEN" name="nameEN" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="nameRU" class="form-label">Name (Russian):</label>
+                <input type="text" class="form-control" id="nameRU" name="nameRU" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="descriptionEN" class="form-label">Description (English):</label>
+                <textarea class="form-control" id="descriptionEN" name="descriptionEN" rows="4" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="descriptionRU" class="form-label">Description (Russian):</label>
+                <textarea class="form-control" id="descriptionRU" name="descriptionRU" rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add Item</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+    <script>
+        Weglot.initialize({
+            api_key: 'wg_e3c408b1f07490eaf3e47a19b9404ebf3'
+        });
+    </script>
+
 </body>
 
 </html>

@@ -1,5 +1,6 @@
 const express = require('express');
 const session = require('express-session');
+const bodyParser = require('body-parser');
 const database = require('./models/db');
 const loginRoutes = require('./routes/loginRoutes');
 const signupRoutes = require('./routes/signupRoutes');
@@ -12,7 +13,10 @@ const PORT = 3000;
 
 app.set('view engine', 'ejs');
 
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(express.json());
+app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
 app.use(session({

@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const requireAuth = require('../middleware/authMiddleware');
+const Item = require('../models/item');
 const fetchHMProducts = require('../services/hmAPI');
-const fetchSheinProducts = require('../services/sheinAPI');
-const Item = require('../models/Item');
+const { fetchWomenClothingProducts, fetchMenClothingProducts } = require('../services/fstoreAPI');
 
 router.get('/home', requireAuth, async (req, res) => {
   try {
@@ -25,14 +25,16 @@ router.get('/home/hm', requireAuth, async (req, res) => {
   }
 });
 
-router.get('/home/shein', requireAuth, async (req, res) => {
+router.get('/home/fstore', requireAuth, async (req, res) => {
   try {
-    const products = await fetchSheinProducts();
-    console.log('Products:', products);
-    res.render('shein', { products });
+    const womenClothingProducts = await fetchWomenClothingProducts();
+
+    const menClothingProducts = await fetchMenClothingProducts();
+
+    res.render('fstore', { womenClothingProducts, menClothingProducts });
   } catch (error) {
-    console.error('Error fetching Shein products:', error);
-    res.render('error');
+    console.error('Error fetching products:', error);
+    res.status(500).send('An error occurred while fetching products.');
   }
 });
 

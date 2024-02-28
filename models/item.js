@@ -1,26 +1,49 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const itemSchema = new mongoose.Schema({
-    names: [{
-        lang: String,
-        text: String
-    }],
-    descriptions: [{
-        lang: String,
-        text: String
-    }],
-    images: [String],
+const itemSchema = new Schema({
+    item_Id: {
+        type: Number,
+        required: true,
+        unique: true
+    },
+    pictures: {
+        picture1: String,
+        picture2: String,
+        picture3: String
+    },
+    names: {
+        nameEN: {
+            type: String,
+            required: false
+        },
+        nameRU: {
+            type: String,
+            required: false
+        },
+    },
+    descriptions: {
+        descriptionEN: {
+            type: String,
+            required: false
+        },
+        descriptionRU: {
+            type: String,
+            required: false
+        },
+    },
     timestamps: {
-        creationDate: {
+        createdAt: {
             type: Date,
             default: Date.now
         },
-        updateDate: {
+        updatedAt: {
             type: Date,
             default: Date.now
         },
-        deletionDate: {
-            type: Date
+        deletedAt: {
+            type: Date,
+            default: null
         }
     }
 });

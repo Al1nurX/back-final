@@ -7,3 +7,54 @@ body {
 main {
     flex: 1;
 }
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.navbar-nav .nav-link {
+    font-size: 18px;
+    color: #555;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007bff;
+}
+
+.footer {
+    background-color: #f8f9fa;
+    color: #333;
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px 0;
+}
+
+.footer span {
+    font-size: 16px;
+    font-style: italic;
+}
+
+.box {
+    width: 800px;
+    margin: 30px 0 120px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(100%);
+}
+
+.carousel-item {
+    transition: transform 1s ease;
+}
+
+.carousel-item img {
+    border-radius: 10px;
+}
+
+.carousel-caption {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+}
