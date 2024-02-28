@@ -30,3 +30,11 @@ img {
     height: auto;
     margin-top: 10px;
 }
+
+.navbar-brand {
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: rgb(194, 127, 127) !important;
+}
