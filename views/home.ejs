@@ -38,13 +38,21 @@
 		</div>
 	</nav>
 
-	<div class="text-center mt-4">
-		<h1>Welcome to the Clothes Shop!</h1>
+	<div class="text-center mt-5">
+		<h1 class="m-0">Welcome to the Clothes Shop!</h1>
 	</div>
 
 	<div class="box mx-auto">
 		<% items.forEach((item, itemIndex)=> { %>
-			<div id="itemCarousel<%= itemIndex %>" class="carousel slide mb-5" data-ride="carousel">
+			<div id="itemCarousel<%= itemIndex %>" class="carousel slide mt-5" data-ride="carousel">
+				<div class="carousel-indicators">
+					<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+						aria-current="true" aria-label="Slide 1"></button>
+					<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+						aria-label="Slide 2"></button>
+					<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+						aria-label="Slide 3"></button>
+				</div>
 				<div class="carousel-inner">
 					<div class="carousel-item active">
 						<img src="<%= item.pictures.picture1 %>" class="d-block w-100" alt="...">
@@ -86,11 +94,11 @@
 				</div>
 				<a class="carousel-control-prev text-dark" href="#itemCarousel<%= itemIndex %>" role="button" data-slide="prev">
 					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="sr-only">Previous</span>
+					<span class="visually-hidden">Previous</span>
 				</a>
 				<a class="carousel-control-next text-dark" href="#itemCarousel<%= itemIndex %>" role="button" data-slide="next">
 					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="sr-only">Next</span>
+					<span class="visually-hidden">Next</span>
 				</a>
 			</div>
 			<% }); %>
