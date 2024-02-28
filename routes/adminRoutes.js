@@ -27,10 +27,12 @@ router.post('/admin/addUser', requireAuth, requireAdmin, async (req, res) => {
             userId = highestUserIdUser.userId + 1;
         }
 
+        const hashedPassword = await bcrypt.hash(password, 10);
+
         const newUser = await User.create({
             userId,
             name,
-            password,
+            password: hashedPassword,
             creationDate: new Date(),
             admin: false
         });
